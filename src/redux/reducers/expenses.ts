@@ -7,8 +7,6 @@ const expenseReducerDefaultState: Expense[] = [];
 const expenseReducer = (state = expenseReducerDefaultState, action: ExpenseActionTypes): Expense[] => {
     switch(action.type) {
         case "GET_EXPENSE":
-            console.log('hi');
-            console.log(expense);
             return expense;
         case "ADD_EXPENSE":
             return [...state, action.expense];

@@ -30,6 +30,10 @@ export default class Homescreen extends Component<HomeProps, any> {
           title="Go to Expense"
           onPress={() => this.props.navigation.navigate('Expense')}
         />
+        <Button
+          title="Go to Counter"
+          onPress={() => this.props.navigation.navigate('Counter')}
+        />
       </View>
     );
   }

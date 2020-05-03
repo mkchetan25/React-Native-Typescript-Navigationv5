@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
+import { HomeStackNavProps } from '../../navigations/HomeStackParamList';
 import { startEditExpense, startGetExpense, startRemoveExpense } from '../../redux/actions/expenses';
 import { AppState } from '../../redux/store/configureStore';
 import { AppAction } from '../../redux/types/actions';
@@ -11,7 +11,8 @@ import { Expense } from '../../redux/types/Expense';
 
 
 interface ExpenseProps {
-    navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+    // navigation: NavigationScreenProp<NavigationState, NavigationParams>;
+    navigation: HomeStackNavProps<'Expense'>;
     id?: string;
     color?: string;
 }

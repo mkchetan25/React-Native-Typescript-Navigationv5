@@ -5,6 +5,8 @@ export const ADD_EXPENSE = "ADD_EXPENSE";
 export const EDIT_EXPENSE = "EDIT_EXPENSE";
 export const REMOVE_EXPENSE = "REMOVE_EXPENSE";
 export const SET_EXPENSE = "SET_EXPENSE";
+export const INCREMENT = "INCREMENT";
+export const DECREMENT = "DECREMENT";
 
 export interface GetExpenseAction {
     type: typeof GET_EXPENSE;
@@ -30,6 +32,18 @@ export interface RemoveExpenseAction {
     id: string;
 }
 
+export interface IncreaseCounter {
+    type: typeof INCREMENT;
+    count: number;
+}
+
+export interface DecreaseCounter {
+    type: typeof DECREMENT;
+    count: number;
+}
+
 export type ExpenseActionTypes = GetExpenseAction | SetExpenseAction | EditExpenseAction | AddExpenseAction | RemoveExpenseAction;
 
-export type AppAction = ExpenseActionTypes;
+export type CounterActionTypes = IncreaseCounter | DecreaseCounter;
+
+export type AppAction = ExpenseActionTypes | CounterActionTypes;

@@ -1,18 +1,22 @@
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { HomeStackNavProps } from '../../navigations/HomeStackParamList';
+import { HomeStackParamList } from '../../navigations/types';
 import { startEditExpense, startGetExpense, startRemoveExpense } from '../../redux/actions/expenses';
 import { AppState } from '../../redux/store/configureStore';
 import { AppAction } from '../../redux/types/actions';
 import { Expense } from '../../redux/types/Expense';
+import Header from '../header/Header';
 
 
 interface ExpenseProps {
     // navigation: NavigationScreenProp<NavigationState, NavigationParams>;
-    navigation: HomeStackNavProps<'Expense'>;
+    navigation: StackNavigationProp<HomeStackParamList, 'Product'>;
+    route: RouteProp<HomeStackParamList, 'Product'>;
     id?: string;
     color?: string;
 }
@@ -41,6 +45,7 @@ class Expensescreen extends Component<Props, ExpenseState> {
     const { container, content } = styles;
     return (
       <View style={container}>
+        <Header title="Expense" leftButtonPress={() => this.props.navigation.goBack()}></Header>
         {
           expenses.map((exp: Expense) => {
             return (

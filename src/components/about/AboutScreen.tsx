@@ -1,25 +1,35 @@
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { RouteProp } from '@react-navigation/native';
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
+import { ProfileStackParamList } from '../../navigations/types';
 import Header from "../header/Header";
 
-// interface AboutProps {
-//     title: string,
-//     navigation: any
-// }
+interface AboutProps {
+  navigation: DrawerNavigationProp<ProfileStackParamList, 'About'>;
+  route: RouteProp<ProfileStackParamList, 'About'>;
+}
 
-export default class Aboutscreen extends Component {
+export default class Aboutscreen extends Component<AboutProps, any> {
+  toggleDrawer = () => {
+    //Props to open/close the drawer
+    this.props.navigation.openDrawer();
+  };
+
   render() {
     const { container, header } = styles;
     return (
         <View style={container}>
         <View style={header}>
-            <Header title="My First App!"></Header>
+            <Header title="My First App!"
+            leftButtonPress={() => this.toggleDrawer}
+            ></Header>
         </View>
 
-        {/* <Button
+        <Button
             title="Go to Home"
-            onPress={() => this.props.navigation.navigate('Home')}
-        /> */}
+            onPress={() => this.toggleDrawer}
+        />
         </View>
     );
   }

@@ -1,10 +1,15 @@
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { Component } from 'react';
 import { Button, Platform, StyleSheet, Text, View } from 'react-native';
-import { NavigationParams, NavigationScreenProp, NavigationState } from 'react-navigation';
+import { HomeStackParamList } from '../../navigations/types';
 import Header from "../header/Header";
 
+// type Navigation = NavigationScreenProp<NavigationState, NavigationParams>;
+
 interface HomeProps {
-    navigation: NavigationScreenProp<NavigationState, NavigationParams>
+  navigation: StackNavigationProp<HomeStackParamList, 'Home'>;
+  route: RouteProp<HomeStackParamList, 'Home'>;
 }
 
 const instructions = Platform.select({
@@ -14,12 +19,19 @@ const instructions = Platform.select({
 
 export default class Homescreen extends Component<HomeProps, any> {
 
+  toggleDrawer = () => {
+    //Props to open/close the drawer
+    this.props.navigation.goBack();
+  };
+
   render() {
     const { container, header, content } = styles;
     return (
-        <View style={container}>
+      <View style={container}>
         <View style={header}>
-          <Header title="My First App!"></Header>
+          <Header title={this.props.route.name}
+            leftButtonPress={() => this.toggleDrawer}
+          ></Header>
         </View>
         <View style={content}>
           <Text>Welcome to React Native test 123!</Text>
@@ -28,11 +40,11 @@ export default class Homescreen extends Component<HomeProps, any> {
         </View>
         <Button
           title="Go to Expense"
-          onPress={() => this.props.navigation.navigate('Expense')}
+          onPress={() => this.props.navigation.navigate('Product')}
         />
         <Button
           title="Go to Counter"
-          onPress={() => this.props.navigation.navigate('Counter')}
+          onPress={() => this.props.navigation.navigate('ProductList')}
         />
       </View>
     );

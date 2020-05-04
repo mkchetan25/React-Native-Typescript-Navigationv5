@@ -1,9 +1,11 @@
+import { RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { HomeStackNavProps } from '../../navigations/HomeStackParamList';
+import { HomeStackParamList } from '../../navigations/types';
 import { startDecreaseCounter, startIncreaseCounter } from '../../redux/actions/counter';
 import { AppState } from '../../redux/store/configureStore';
 import { AppAction } from '../../redux/types/actions';
@@ -11,7 +13,9 @@ import { Counter } from '../../redux/types/Expense';
 
 interface CounterProps {
     // navigation: NavigationScreenProp<NavigationState, NavigationParams>;
-    navigation: HomeStackNavProps<'Counter'>;
+    // navigation: HomeStackNavProps<'Counter'>;
+    navigation: StackNavigationProp<HomeStackParamList, 'ProductList'>;
+    route: RouteProp<HomeStackParamList, 'ProductList'>;
     id?: string;
     color?: string;
 }

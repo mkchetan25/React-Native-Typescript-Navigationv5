@@ -12,7 +12,7 @@ export type TabParamList = {
 
 export type DrawerParamList = {
     Home: undefined;
-    Upload: undefined;
+    Login: undefined;
 }
 
 export type HomeStackParamList = {

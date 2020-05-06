@@ -1,0 +1,13 @@
+{
+  "primaryColor": "#6FBDFF",
+  "secondaryColor": "#E0E0E0",
+  "dangerColor": "#DC3546",
+  "mainBGColor": "#F8F8F8",
+  "titleTextColor": "#343437",
+  "textTextColor": "#9AA4AB",
+  "titleTextSize": 18,
+  "subTitleTextSize": 16,
+  "defTextSize": 14,
+  "smallTextSize": 10,
+  "badgeColor": "#43516A"
+}

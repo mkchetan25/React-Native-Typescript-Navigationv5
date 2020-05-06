@@ -79,6 +79,8 @@ target 'MyApp_ts' do
 
   pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
 
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
   target 'MyApp_tsTests' do
     inherit! :complete
     # Pods for testing

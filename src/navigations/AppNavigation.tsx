@@ -2,16 +2,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import React, { FC } from "react";
-import Aboutscreen from "../components/about/AboutScreen";
-import Cartscreen from "../components/cart/cartscreen";
-import CounterPage from "../components/counter/CounterPage";
-import ExpensePage from "../components/expense/ExpensePage";
-import Homescreen from "../components/home/HomeScreen";
-import Loginscreen from "../components/login/Login";
-import ProductListscreen from "../components/productlist/Productlistscreen";
-import Profilescreen from "../components/profile/Profilescreen";
+import Cartscreen from "../screens/cart/Cartscreen";
+import CounterPage from "../screens/counter/CounterPage";
+import ExpensePage from "../screens/expense/ExpensePage";
+import Homescreen from "../screens/home/HomeScreen";
+import Loginscreen from "../screens/login/Login";
+import CategoryListScreen from "../screens/products/CategoryListScreen";
+import Profilescreen from "../screens/profile/Profilescreen";
 import { CartStackParamList, CategoryStackParamList, DrawerParamList, HomeStackParamList, ProfileStackParamList, TabParamList } from "./types";
-
 
 const HomeStack = createStackNavigator<HomeStackParamList>();
 const CategoryStack = createStackNavigator<CategoryStackParamList>();
@@ -33,7 +31,7 @@ export const HomeStackNavigation: FC = ({}) => {
 export const CategoryStackNavigation: FC = ({}) => {
   return (
     <CategoryStack.Navigator>
-      <CategoryStack.Screen name="CategoryList" component={ProductListscreen}/>
+      <CategoryStack.Screen name="CategoryList" component={CategoryListScreen}/>
       <CategoryStack.Screen name="ProductList" component={ExpensePage} options={{
         headerShown: false
       }}/>
@@ -70,7 +68,7 @@ export const DrawerNavigation: FC = ({}) => {
   return (
     <Drawer.Navigator>
         <Drawer.Screen name="Home" component={HomeStackNavigation}  />
-        <Drawer.Screen name="Upload" component={Aboutscreen} />
+        <Drawer.Screen name="Login" component={Loginscreen} />
     </Drawer.Navigator>
   );
 };

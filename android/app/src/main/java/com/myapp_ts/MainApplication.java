@@ -1,16 +1,22 @@
 package com.myapp_ts;
 
 import android.app.Application;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
+import java.util.Arrays;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -23,11 +29,17 @@ public class MainApplication extends Application implements ReactApplication {
 
         @Override
         protected List<ReactPackage> getPackages() {
-          @SuppressWarnings("UnnecessaryLocalVariable")
-          List<ReactPackage> packages = new PackageList(this).getPackages();
-          // Packages that cannot be autolinked yet can be added manually here, for example:
-          // packages.add(new MyReactNativePackage());
-          return packages;
+          // @SuppressWarnings("UnnecessaryLocalVariable")
+          // List<ReactPackage> packages = new PackageList(this).getPackages();
+          // // Packages that cannot be autolinked yet can be added manually here, for example:
+          // // packages.add(new MyReactNativePackage());
+          // return packages;
+          return Arrays.<ReactPackage>asList(
+            new MainReactPackage(),
+            new ReanimatedPackage(),
+            new RNGestureHandlerPackage(),
+            new RNFetchBlobPackage()
+          );
         }
 
         @Override
